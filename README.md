@@ -1,55 +1,49 @@
-# React + TypeScript + Vite
+# تمرین دستگرمی دوم: نقاشی بکش لویی
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+این پروژه یک برنامه ساده نقاشی تحت وب است که با استفاده از کتابخانه React.js پیاده‌سازی شده است.
 
-Currently, two official plugins are available:
+## نحوه کارکرد و پیاده‌سازی
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **کامپوننت `App.tsx`:** به عنوان کامپوننت اصلی، وظیفه مدیریت state کلی برنامه (لیست اشکال، ابزار انتخاب شده و...) را بر عهده دارد.
 
-## Expanding the ESLint configuration
+- **کامپوننت `Canvas.tsx`:** مسئول رندر کردن اشکال و مدیریت رویداد کلیک برای افزودن شکل جدید است.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **کامپوننت `Footer.tsx`:**  مسئول نمایش قسمت پایین صفحه که نشان دهنده تعداد اشکال استفاده شده در برنامه، است.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **کامپوننت `Shape.tsx`:** این کلاس برای مدیریت و نمایش اشکال در بورد استفاده می‌شود.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **کامپوننت `Sidebar.tsx`:** مسئول نشان دادن بخش tools است.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **کامپوننت `Header.tsx`:** مواردی مثل تایتل، بخش های و بخش های ایمپورت و اکسپورت در این بخش هندل شده اند.
+- **ویژگی Export/Import:** با کلیک بر روی Export، وضعیت فعلی نقاشی (عنوان و لیست اشکال) به یک فایل JSON تبدیل و دانلود می‌شود. با Import می‌توان یک فایل JSON معتبر را بارگذاری و نقاشی را بازیابی کرد.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
->>>>>>> 795b440 (Create painting board)
+## نحوه اجرا
+
+برای اجرای این پروژه به صورت محلی، مراحل زیر را دنبال کنید:
+
+1.  ابتدا مخزن را کلون کنید:
+
+    ```bash
+    git clone https://github.com/alirezasm0/web-hw2.git
+    ```
+2.  وارد پوشه پروژه شوید:
+
+    ```bash
+    cd YOUR_REPOSITORY_NAME
+    ```
+3.  بسته‌های مورد نیاز را نصب کنید:
+
+    ```bash
+    npm install
+    ```
+4.  پروژه را اجرا کنید:
+
+    ```bash
+    npm run dev
+    ```
+
+## موارد استفاده از هوش مصنوعی
+
+*   **موارد استفاده:**  برای تولید اولیه ساختار کامپوننت‌ها از ChatGPT کمک گرفته شد.
+*   **مزایا:**  افزایش سرعت توسعه و ارائه یک ساختار استاندارد
+*   **معایب:**  کد تولید شده نیاز به بازبینی و اصلاح برای مطابقت کامل با نیازمندی‌های پروژه داشت، به صورت کلی کد هایی که توسط هوش مصنوعی تولید می‌شوند کمک می‌کنند تا ساختار کلی پروژه شکل بگیرد ولی برای اینکه تمام نیاز های ما برطرف شود و همچنین کد بدون اشکال باشد، نیاز است که خودمان هم دست به کد شویم.
