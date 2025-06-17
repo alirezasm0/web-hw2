@@ -1,0 +1,173 @@
+/* General Body Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Main Content Area (Canvas and Sidebar) */
+.main-content {
+  display: flex;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Header Component */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f7f7f7;
+}
+
+.header input {
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 1px solid transparent;
+  padding: 5px;
+  border-radius: 4px;
+}
+.header input:hover, .header input:focus {
+  border-color: #ccc;
+}
+.header .buttons button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #007bff;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.header .buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Sidebar Component */
+.sidebar {
+  width: 150px;
+  padding: 20px;
+  border-left: 1px solid #ddd;
+  background-color: #fafafa;
+}
+.sidebar h3 {
+  margin-top: 0;
+  text-align: center;
+}
+.tool {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ccc;
+  margin: 15px auto;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+.tool.selected {
+  border-color: #007bff;
+  background-color: #e7f3ff;
+  transform: scale(1.1);
+}
+.tool.circle { border-radius: 50%; }
+.tool.triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid #ccc;
+  background-color: transparent;
+  border-radius: 0;
+  border-top: 0;
+}
+.tool.triangle.selected {
+  border-bottom-color: #007bff;
+}
+
+/* Canvas Component */
+.canvas {
+  flex-grow: 1;
+  height: 500px;
+  background-color: #fdfdfd;
+  position: relative; 
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+/* Shape Component */
+.shape {
+  position: absolute;
+  cursor: pointer;
+}
+.shape-circle {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 82, 82, 0.7);
+  border-radius: 50%;
+  border: 2px solid #c0392b;
+}
+.shape-square {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(41, 128, 185, 0.7);
+  border: 2px solid #2980b9;
+}
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid rgba(39, 174, 96, 0.7);
+  background-color: transparent;
+}
+
+/* Footer Component */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 15px;
+  background-color: #f7f7f7;
+}
+.shape-count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+}
+.count-icon {
+  width: 20px;
+  height: 20px;
+}
+.count-icon.circle { background-color: #e74c3c; border-radius: 50%; }
+.count-icon.square { background-color: #3498db; }
+.count-icon.triangle { 
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #2ecc71;
+}
